@@ -15,55 +15,57 @@
 -- SETUP : Create Database & Table
 -- ----------------------------------------------------------------------------------------------------------------------------
 
---CREATE DATABASE SalesEDA;
---GO
+CREATE DATABASE SalesEDA;
+GO
 
---USE SalesEDA;
---GO
+USE SalesEDA;
+GO
 
---CREATE TABLE dbo.Sales (
---    order_number        NVARCHAR(50) NOT NULL,
---    order_date          DATE         NOT NULL,
---    customer_name       NVARCHAR(50) NOT NULL,
---    channel             NVARCHAR(50) NOT NULL,
---    product_name        NVARCHAR(50) NOT NULL,
---    quantity            INT          NOT NULL,
---    unit_price          FLOAT        NOT NULL,
---    revenue             FLOAT        NOT NULL,
---    cost                FLOAT        NOT NULL,
---    state               NVARCHAR(50) NOT NULL,
---    state_name          NVARCHAR(50) NOT NULL,
---    us_region           NVARCHAR(50) NOT NULL,
---    lat                 FLOAT        NOT NULL,
---    lon                 FLOAT        NOT NULL,
---    budget              FLOAT        NULL,
---    total_cost          FLOAT        NOT NULL,
---    profit              FLOAT        NOT NULL,
---    profit_margin_pct   FLOAT        NOT NULL,
---    order_month_name    NVARCHAR(50) NOT NULL,
---    month_no            INT          NOT NULL
---);
---GO
+CREATE TABLE dbo.Sales (
+    order_number        NVARCHAR(50) NOT NULL,
+    order_date          DATE         NOT NULL,
+    customer_name       NVARCHAR(50) NOT NULL,
+    channel             NVARCHAR(50) NOT NULL,
+    product_name        NVARCHAR(50) NOT NULL,
+    quantity            INT          NOT NULL,
+    unit_price          FLOAT        NOT NULL,
+    revenue             FLOAT        NOT NULL,
+    cost                FLOAT        NOT NULL,
+    state               NVARCHAR(50) NOT NULL,
+    state_name          NVARCHAR(50) NOT NULL,
+    us_region           NVARCHAR(50) NOT NULL,
+    lat                 FLOAT        NOT NULL,
+    lon                 FLOAT        NOT NULL,
+    budget              FLOAT        NULL,
+    total_cost          FLOAT        NOT NULL,
+    profit              FLOAT        NOT NULL,
+    profit_margin_pct   FLOAT        NOT NULL,
+    order_month_name    NVARCHAR(50) NOT NULL,
+    month_no            INT          NOT NULL
+);
+GO
 
 ---- ----------------------------------------------------------------------------------------------------------------------------
 ---- LOAD DATA
 ---- ----------------------------------------------------------------------------------------------------------------------------
 
---BULK INSERT dbo.Sales
---FROM 'C:\Users\tamir\OneDrive\Desktop\Sales-Analysis-main MY\final\Cleaned Sales Performance Analysis.csv'
---WITH (
---    FIRSTROW = 2,
---    FIELDTERMINATOR = ',',
---    ROWTERMINATOR = '\r\n',
---    TABLOCK
---);
+BULK INSERT dbo.Sales
+FROM 'C:\Users\tamir\OneDrive\Desktop\Sales-Analysis-main MY\final\Cleaned Sales Performance Analysis.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\r\n',
+    TABLOCK
+);
 
 
 ---- ----------------------------------------------------------------------------------------------------------------------------
 ---- VALIDATION
 ---- ----------------------------------------------------------------------------------------------------------------------------
 
---SELECT TOP 10 * FROM dbo.Sales;
+SELECT TOP 100 * FROM dbo.Sales;
+SELECT COUNT(*)  AS total_rows
+FROM dbo.Sales
 
 
 /* ============================================================================================================================
